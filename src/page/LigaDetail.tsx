@@ -11,11 +11,12 @@ const LigaDetail = (props: any) => {
   const { idLiga }: any = location?.state || 0;
   const dispatch = useDispatch();
   const detailLigaData = useSelector((state: any) => state?.detailLiga);
+  console.log(detailLigaData);
 
   useEffect(() => {
     document.title = "LIGA SOCCER | Detail";
     if (idLiga) {
-      dispatch(detailLiga(idLiga));
+      dispatch(detailLiga(idLiga, "detail-liga"));
     }
   }, []);
 

@@ -20,7 +20,8 @@ export const listLiga = () => {
 }  
 
 //Make Action detail liga
-export const detailLiga = (idLiga:String) => {
+export const detailLiga = (idLiga:String,path:String) => {
+  if(idLiga){
     return (dispatch: (arg0: { type: any; payload?: any; }) => void) => {
           dispatch(actionPending(`${LIGA_DETAIL}_P`))
           axios({
@@ -28,10 +29,16 @@ export const detailLiga = (idLiga:String) => {
               url: ` https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${idLiga}`,
           })
           .then(res => {
-                  dispatch(actionFulfilled(`${LIGA_DETAIL}_F`, { res }));
+                  dispatch(actionFulfilled(`${LIGA_DETAIL}_F`, { res,path }));
           })
           .catch(err => {
                   dispatch(actionRejected(`${LIGA_DETAIL}_R`, err));
           });
     }
+  }else{
+    return (dispatch: (arg0: { type: any; payload?: any; }) => void) => {
+        dispatch(actionFulfilled(`BACK_F`, { path }));
+    }
+  }
+
 }  
