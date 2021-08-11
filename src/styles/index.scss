@@ -14,6 +14,7 @@ body {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #eaeaea;
 }
 
 code {
@@ -24,14 +25,21 @@ code {
 .main-container {
   position: relative;
   min-height: calc(100vh - 43px);
+  width: 60vw;
+  margin: 0 auto;
+  background-color: #fff;
 }
 .container {
-  padding: 4px 100px 10px 100px;
+  padding: 4px 20px 10px 20px;
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) {
+  .main-container {
+    width: 100vw;
+  }
+
   .container {
-    padding: 4px 40px 10px 40px;
+    padding: 4px 20px 10px 20px;
   }
 }
