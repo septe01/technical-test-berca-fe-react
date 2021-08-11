@@ -4,9 +4,21 @@ import "./styles/style.scss";
 import App from "./page/App";
 import reportWebVitals from "./reportWebVitals";
 
+import { Provider } from "react-redux";
+
+import { PersistGate } from "redux-persist/integration/react";
+
+// import store from './_redux/store';
+import getStore from "./utils/store";
+const { store, persiStore } = getStore();
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persiStore}>
+        <App />
+      </PersistGate>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
