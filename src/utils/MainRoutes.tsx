@@ -1,16 +1,26 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
+import PageNotFound from "../page/404";
 import Liga from "../page/Liga";
+import LigaDetail from "../page/LigaDetail";
 
 const MainRoutes: React.FC = () => {
   return (
     <Switch>
       <Route path="/" exact>
-        <Redirect to={"/la-liga"} />
+        <Redirect to={"/liga-soccer"} />
       </Route>
 
-      <Route path="/la-liga" exact>
+      <Route path="/liga-soccer" exact>
         <Liga />
+      </Route>
+
+      <Route path="/liga-soccer/detail" exact>
+        <LigaDetail />
+      </Route>
+
+      <Route path="*" exact>
+        <PageNotFound />
       </Route>
 
       {/* <Route path="/" exact>
