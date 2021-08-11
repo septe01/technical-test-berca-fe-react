@@ -1,45 +1,67 @@
-.container-card-liga {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  .card-wrapper {
-    width: 48%;
-    margin: 4px;
-    box-shadow: 0px 0px 4px #00000050;
-    border-radius: 4px;
-    padding: 16px 6px;
-    img {
-      width: clamp(0.1rem, 11.999vw, 11rem);
-      margin: 0 auto;
-      display: block;
-    }
-    .content {
-      .titile-wrapper {
-        display: flex;
-        margin: 10px 0;
-        align-content: center;
-        img {
-          flex: 0.2;
+.container-liga {
+  h1 {
+    color: #2c2e43;
+    font-weight: 600;
+  }
+  .container-card-liga {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .card-wrapper {
+      width: 48%;
+      margin: 4px;
+      box-shadow: 0px 0px 4px #00000050;
+      border-radius: 4px;
+      padding: 16px 6px;
+      img {
+        width: clamp(0.1rem, 11.999vw, 11rem);
+        margin: 0 auto;
+        display: block;
+      }
+      .content {
+        .titile-wrapper {
+          display: flex;
+          margin: 10px 0;
+          align-content: center;
+          img {
+            flex: 0.2;
+          }
+          h2 {
+            align-self: center;
+            flex: 3;
+            margin: 0 5px;
+            font-size: 16px;
+            color: #2c2e43;
+            font-weight: 500;
+          }
         }
-        h2 {
-          align-self: center;
-          flex: 3;
-          margin: 0 5px;
-          font-size: 16px;
+        span {
           color: #2c2e43;
-          font-weight: 500;
+        }
+        span.more {
+          color: rgba(255, 0, 0, 0.9) !important;
+          margin: 5px;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
-      span {
-        color: #2c2e43;
-      }
-      span.more {
-        color: rgba(255, 0, 0, 0.9) !important;
-        margin: 5px;
+    }
+  }
+}
 
-        &:hover {
-          cursor: pointer;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  .container-liga {
+    .container-card-liga {
+      .card-wrapper {
+        width: 100%;
+        img {
+          width: clamp(0.1rem, 37.999vw, 11rem);
+          margin: 0 auto;
+          display: block;
         }
       }
     }

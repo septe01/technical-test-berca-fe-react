@@ -1,13 +1,11 @@
-//Isi Dari Func atau
-
 import { LIGA } from "../utils/Constants";
 
 //Init Reducer
 const initialState = {
-  listDataLiga : []
+  listDataLiga : [],
 };
 
-const listLiga = (state = initialState, action:any) => {
+export const listLiga = (state = initialState, action:any) => {
   switch (action.type) {
     case `${LIGA}_F`:
       return {
@@ -17,5 +15,3 @@ const listLiga = (state = initialState, action:any) => {
       return state;
   }
 };
-
-export default listLiga;

@@ -5,7 +5,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import {persistReducer} from 'redux-persist'
 
 //Insert Reducers
-import listR from "./laligaReducer";
+import { listLiga } from "./laligaReducer";
+import { detailLiga } from "./detailLigaReducer";
 // import otherReducer from "./otherReducer";
 
 
@@ -13,11 +14,12 @@ import listR from "./laligaReducer";
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['listR']
+  whitelist: ['listLiga']
 }
 
 const rootReducer = combineReducers({
-  getDataList: persistReducer(persistConfig,listR),
+  getDataList: persistReducer(persistConfig,listLiga),
+  detailLiga
   // otherReducer //if you don't want reducer to save persist you can place just it
 })
 
