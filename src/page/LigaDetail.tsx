@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useLocation } from "react-router-dom";
+import { handlePath } from "../_actions/handlerActions";
 import { detailLiga } from "../_actions/laligaAction";
 
 const LigaDetail = (props: any) => {
@@ -17,6 +18,7 @@ const LigaDetail = (props: any) => {
     document.title = "LIGA SOCCER | Detail";
     if (idLiga) {
       dispatch(detailLiga(idLiga, "detail-liga"));
+      dispatch(handlePath("detail-liga"));
     }
   }, []);
 

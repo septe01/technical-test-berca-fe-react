@@ -1,22 +1,44 @@
-import React from "react";
-import { BiSearchAlt } from "react-icons/bi";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
+import { BiSearchAlt, BiArrowBack } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { detailLiga } from "../../_actions/laligaAction";
+import { handlePath } from "../../_actions/handlerActions";
+import { useHistory } from "react-router-dom";
 
 const Index = () => {
   const dispatch = useDispatch();
-  const detailLigaData = useSelector((state: any) => state?.detailLiga);
+  const path = useSelector((state: any) => state?.handlePath?.path);
+
+  const history = useHistory();
+
+  useEffect(() => {
+    return history.listen((location) => {
+      if (location.pathname === "/liga-soccer") {
+        dispatch(handlePath(""));
+      }
+    });
+  }, []);
 
   return (
     <header>
       <nav className="nav-warape">
         <div className="title-subtitle">
-          <h2>Soccer</h2>
+          <Link to="/">
+            <h2>
+              {path === "detail-liga" && (
+                <BiArrowBack
+                  className="ic-back"
+                  onClick={() => dispatch(handlePath(""))}
+                />
+              )}
+              Soccer
+            </h2>
+          </Link>
 
           <h3>
-            {detailLigaData?.path === "detail-liga"
+            {path === "detail-liga"
               ? "Detail League"
               : "English Premier League"}
           </h3>
@@ -24,16 +46,7 @@ const Index = () => {
         <div className="menu-wrapper">
           <ul>
             <li>
-              {detailLigaData?.path === "detail-liga" ? (
-                <Link to="/">
-                  <AiOutlineClose
-                    className="ic-search"
-                    onClick={() => dispatch(detailLiga("", ""))}
-                  />
-                </Link>
-              ) : (
-                <BiSearchAlt className="ic-search" />
-              )}
+              {path !== "detail-liga" && <BiSearchAlt className="ic-search" />}
             </li>
           </ul>
         </div>

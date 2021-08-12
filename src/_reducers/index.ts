@@ -7,6 +7,7 @@ import {persistReducer} from 'redux-persist'
 //Insert Reducers
 import { listLiga } from "./laligaReducer";
 import { detailLiga } from "./detailLigaReducer";
+import { handlePath } from "./handlerReducers";
 // import otherReducer from "./otherReducer";
 
 
@@ -19,7 +20,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   getDataList: persistReducer(persistConfig,listLiga),
-  detailLiga
+  detailLiga,
+  handlePath
   // otherReducer //if you don't want reducer to save persist you can place just it
 })
 

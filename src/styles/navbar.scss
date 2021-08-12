@@ -11,12 +11,20 @@
     display: flex;
     flex-direction: row;
     flex: 2;
-    h2 {
+    a {
       flex: 1;
       align-self: center;
-      font-weight: 500;
-      &:hover {
-        cursor: pointer;
+      color: #ffffff;
+      h2 {
+        display: flex;
+        align-items: center;
+        .ic-back {
+          margin-right: 8px;
+        }
+        font-weight: 500;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
     h3 {

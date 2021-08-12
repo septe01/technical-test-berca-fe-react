@@ -58,7 +58,7 @@ const Liga = () => {
                       },
                     }}
                   >
-                    <span className="more">detail</span>
+                    <span className="more">show more</span>
                   </Link>
                 </div>
               </div>
